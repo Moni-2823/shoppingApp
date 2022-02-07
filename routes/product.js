@@ -2,7 +2,7 @@ const express = require('express');
 const { createPage,getPage,updatePage,deletePage } = require('../controllers/productRouteController');
 var app = express();
 
-app.post('/createProduct', async (req, res) => {
+app.post('/createProduct',middleware, async (req, res) => {
     try {
         if(Object.keys(req.body).length == 0) {
             console.log('user has insufficient details');
@@ -39,7 +39,7 @@ app.get('/getProduct', async (req, res) => {
 })
 
 
-app.patch('/updateProduct', async (req, res) => {
+app.patch('/updateProduct',middleware, async (req, res) => {
     try {
         if(Object.keys(req.query).length == 0) {
             console.log('user has insufficient details');
@@ -57,7 +57,7 @@ app.patch('/updateProduct', async (req, res) => {
     } 
 })
 
-app.post('/deleteProduct', async (req, res) => {
+app.post('/deleteProduct',middleware, async (req, res) => {
     try {
         if(Object.keys(req.query).length == 0) {
             console.log('user has insufficient details');
